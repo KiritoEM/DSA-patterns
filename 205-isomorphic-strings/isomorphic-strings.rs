@@ -23,8 +23,6 @@ impl Solution {
             }
         }
 
-        println!("{:?}", dict);
-
         true
     }
 }
