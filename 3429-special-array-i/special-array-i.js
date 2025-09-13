@@ -11,8 +11,6 @@ var isArraySpecial = function (nums) {
         const first = nums[p];
         const second = nums[q];
 
-        console.log(isEven(first) && isOdd(second), p, q);
-
         if ((isOdd(first) && isOdd(second)) || (isEven(first) && isEven(second))) {
             return false;
         }
