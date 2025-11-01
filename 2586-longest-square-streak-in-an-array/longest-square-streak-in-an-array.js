@@ -3,6 +3,7 @@
  * @return {number}
  */
 var longestSquareStreak = function (nums) {
+    nums.sort((a, b) => a - b);
     const set = new Set(nums);
     let maxStreak = 0;
 
