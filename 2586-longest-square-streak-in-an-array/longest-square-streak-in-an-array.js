@@ -9,7 +9,7 @@ var longestSquareStreak = function (nums) {
 
     for (let num of nums) {
         const root = Math.sqrt(num);
-        if (Number.isInteger(root) && set.has(root)) continue;
+        if (set.has(root)) continue;
 
         let count = 1;
         let current = num;
