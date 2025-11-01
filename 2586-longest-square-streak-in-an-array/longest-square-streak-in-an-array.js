@@ -3,25 +3,30 @@
  * @return {number}
  */
 var longestSquareStreak = function (nums) {
-    let set = new Set(nums.sort((a, b) => a - b));
-    let streakCount = 0;
+    nums.sort((a, b) => a - b);
+    let set = new Set(nums);
+    let maxStreak = 0;
 
-    set.forEach((val) => {
-        let subsequence = [val];
+    for (let val of nums) {
+        const root = Math.sqrt(val);
+
+        if (set.has(root)) continue;
+
         let current = val;
+        let subsequenceLength = 1;
 
         while (set.has(current * current)) {
             current = current * current;
-            subsequence.push(current);
+            subsequenceLength++;
         }
 
-        if (subsequence.length >= 5) {
-            streakCount = 5;
-            return;
+        if (subsequenceLength >= 5) {
+            maxStreak = 5;
+            break;
         }
 
-        streakCount = Math.max(streakCount, subsequence.length);
-    })
+        maxStreak = Math.max(maxStreak, subsequenceLength);
+    }
 
-    return streakCount > 1 ? streakCount : -1;
+    return maxStreak > 1 ? maxStreak : -1;
 };
